@@ -14,8 +14,8 @@ def callback(frames):
 
 def main():
     audio_monitor = audio.AudioMonitor(callback=callback,
-                                       aggressiveness=3,
-                                       trigger_percent=0.8,
+                                       aggressiveness=0,
+                                       trigger_percent=0.9,
                                        vad_duration=0.03)
 
     while True:
