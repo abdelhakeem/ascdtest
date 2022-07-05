@@ -31,6 +31,8 @@ In our split method, we guarantee that all recordings of a certain contributor a
 
 ## Data Augmentation
 
+We used [audiomentations](https://github.com/iver56/audiomentations) for  the augmentation tasks.
+
 We combined and used several data augmentation techniques over 10 rounds with a probability of 0.5 for each augmentation to make up for the low volume of data:
 
 - Add gaussian noise to the samples
@@ -40,3 +42,11 @@ We combined and used several data augmentation techniques over 10 rounds with a 
 - Time masking
 
 We also added 3000 silent segments with some Gaussian noise to the dataset to be able to detect silence.
+
+## Data Preprocessing
+
+MFCCs are one of the most widely used features to represent speech signals in ASR systems. Although it is not the only one, it is known to help achieve remarkable results compared to other features, and this prompted us to use it in our experiments.
+
+## Model
+
+A convolutional neural network of 3 stacked convolutional layers with 64, 32, and 32 channels (feature maps), respectively. Each layer is followed by batch normalization and a 2 × 2 max-pooling layer. Finally, these layers are succeeded by a dropout layer with 0.3 omission probability and a fully connected feed-forward layer with 64 hidden units.
